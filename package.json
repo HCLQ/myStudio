@@ -1,11 +1,14 @@
 {
-  "name": "test",
+  "name": "studio",
   "version": "1.0.0",
-  "description": "",
+  "description": "do for fun",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "祁彦川 <yanchuan.qiyc@ymm56.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
 }
