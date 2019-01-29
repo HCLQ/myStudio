@@ -1,6 +1,6 @@
 // 测试
-// tsc xxx/xx/xx.ts 编译
-// promises-aplus-tests xxx/xx/xx.js
+// tsc project/promise/index 编译
+// promises-aplus-tests project/promise/index.js
 
 enum STATUS {
   PENDING = 'pending',
@@ -64,7 +64,8 @@ class MyPromise {
   public status = STATUS.PENDING
   private onFulfilledCallbacks = []
   private onRejectedCallbacks = []
-  private value
+  private value // 返回值
+  private reason // 拒因
 
   private resolve = (value) => {
     if (value instanceof MyPromise) {
@@ -86,7 +87,7 @@ class MyPromise {
     nextTick(() => {
       if (this.status === STATUS.PENDING) {
         this.status = STATUS.REJECTED
-        this.value = reason
+        this.reason = reason
         this.onRejectedCallbacks.forEach((cb) => cb(reason))
       }
     })
@@ -123,7 +124,7 @@ class MyPromise {
         case STATUS.REJECTED:
           nextTick(() => {
             try {
-              newValue = onRejected(this.value)
+              newValue = onRejected(this.reason)
               resolvePromise(newPromise, newValue, resolve, reject)
             } catch (e) {
               reject(e)
