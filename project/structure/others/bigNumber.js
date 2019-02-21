@@ -60,9 +60,9 @@ function multiply2(num1, num2) {
   let c = num2.slice(0, size2 - mid)
   let d = num2.slice(size2 - mid)
 
-  let z2 = multiply2(a,c)
-  let z0 = multiply2(b,d)
-  let z1 = multiply2((+a + +b), (+c + +d)) - z0 - z2
+  let z2 = multiply2(a, c)
+  let z0 = multiply2(b, d)
+  let z1 = multiply2(+a + +b, +c + +d) - z0 - z2
 
-  return (z2 * Math.pow(10, (2*mid)) + z1 * Math.pow(10, mid) + z0)
+  return z2 * Math.pow(10, 2 * mid) + z1 * Math.pow(10, mid) + z0
 }
