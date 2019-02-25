@@ -1,4 +1,31 @@
-//
+/**
+ * 归并排序
+ * O(nlogn)
+ * 
+ * 找到中点拆分为2部分, 然后递归继续拆分,直到lo >=hi时停止, 开始合并
+ * 合并策略,左右两边同时遍历, 左边和右边对比 哪边小的 哪边放入temp数组 直到一边结束,查看另一边是否有余,将余下的全部放入temp
+ * 将temp中的全部数据 从lo开始放回,直到清空
+ * 重复合并操作最终有序
+ * 
+ * 拆分: 
+ * lo      mid      hi
+ *  3   2   5   4   1
+ * 
+ * lo  mid  hi     lo   hi
+ *  3   2   5       4   1
+ * 
+ * lo  mid/hi    lo/mid/hi       lo   hi
+ * 3   2            5            4    1
+ * 
+ * 合并
+ * 2   3   |    5     |    1   4
+ * 
+ * 2  3  5   |  1  4
+ * 
+ * 1  2  3  4  5     
+ * 
+ */
+
 var myMergeSort = function(array) {
   function sort(arr, lo = 0, hi = arr.length - 1) {
     if (lo < hi) {
@@ -39,7 +66,7 @@ var myMergeSort = function(array) {
   return sort(array)
 }
 
-// to learn
+// to learn, 一种优化版本
 var mergeSort = function(array) {
   function merge(arr, aux, lo, mid, hi) {
     var i = lo
