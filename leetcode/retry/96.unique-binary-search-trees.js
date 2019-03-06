@@ -37,13 +37,13 @@
 // 设函数 f (i,n)为 以i为root的 1- i-1为左子树 i+i - n为右子树的二叉树总数
 // g(n) = f(1,n) + f(2,n) + ...f(n,n)
 // [1,2,3,4,5,6,7] 设此时 f(3,6) 相当于g(2)*g(4)
-// f(i, n) = g(i-1) * g(n-i)	1 <= i <= n 
+// f(i, n) = g(i-1) * g(n-i)	1 <= i <= n
 // g(n) = g(0) * g(n-1) + g(1) * g(n-2) + … + g(n-1) * g(0)
 var numTrees = function(n) {
-  let G = [0, 1];
+  let G = [1, 1];
   for (let i = 2; i <= n; ++i) {
     for (let j = 1; j <= i; ++j) {
-      G[i] += G[j - 1] * G[i - j];
+      G[i] = G[j - 1] * G[i - j] + (G[i] || 0);
     }
   }
   return G[n];
