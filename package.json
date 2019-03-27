@@ -6,7 +6,7 @@
   "scripts": {
     "babel": "node ./project/babel/index.js"
   },
-  "author": "祁彦川 <yanchuan.qiyc@ymm56.com>",
+  "author": "祁彦川",
   "license": "ISC",
   "devDependencies": {
     "mocha": "^5.2.0"
