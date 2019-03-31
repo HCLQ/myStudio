@@ -1,10 +1,11 @@
-GET https://dev.yundada56.com/bluewhale-line/line/getQueryLineDetail?lineId=755&queryDestination=120101 HTTP/1.1
+POST http://192.168.205.76:8080/getOriginalTextBatch HTTP/1.1
 content-type: application/json;charset=UTF-8
-Authorization: Bearer eyJsb2dpblRpbWUiOiIyMDE5LTAxLTIzIDExOjI2Ojg4IiwidXNlcklkIjozOX0=
-ClientInfo: 51d4dbde322baec62b8253260b2e7bde0a3044b0/line/1.10.0/ios
+passport: OSDShB3LpTduTjKeKhcYfNr477yyYhSKbSdbNFhppLAqU_corqSKzdZDM7aBCJuNkl4f1b0GinnAepJzkzDNJ0BgNEFlhsN1jUZ_sgMzvf_2c7ZofWeEvstp-59mx2OoT7CjUqvf8eRzqkwBrOhmx6JH9yui6NRJ9mrQk_LAcZA,
+thaad_access_key: internal_rest,
+accessApp: boss-party-website
 
 {
-    "name":"Hendry",
-    "salary":"61888",
-    "age":"26"
+    "value": {
+         "MOBILE_NUM": ["999176666666668236", "999176666666668236"]
+    }
 }
